@@ -1,0 +1,11 @@
+<html t:type="layout"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+      pagetitle="Domains">
+<br/>
+<t:pagelink page="index">На главную</t:pagelink>
+<t:domainslist />
+
+<t:pagelink page="knowledge/domains/select" context="0">Add domain</t:pagelink>
+<t:pagelink page="knowledge/domains/select" context="1">Edit domain</t:pagelink>
+<t:pagelink page="knowledge/domains/select" context="2">Delete domain</t:pagelink>
+</html>

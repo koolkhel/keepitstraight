@@ -1,0 +1,15 @@
+<html t:type="layout"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+      pagetitle="Удаление домена">
+
+<h2><t:domainsenum domains="domains" /></h2>
+
+Удалить?
+<t:form t:id="yes">
+    <t:submit value="Да" />
+</t:form>
+<t:form t:id="no">
+    <t:submit value="Нет" />
+</t:form>
+${message}
+</html>

@@ -1,0 +1,22 @@
+<container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <t:grid source="facts" row="fact" reorder="domains,facttitle,facttext"
+            add="domains,project" inplace="true">
+        <t:parameter name="facttextCell">
+            <t:pagelink page="knowledge/facts/display" context="fact.id">
+                <div t:type="ck/TrimmedString" maxLength="50" value="fact.facttext" />
+            </t:pagelink>
+        </t:parameter>
+        <t:parameter name="empty">
+            Нет фактов
+        </t:parameter>
+        <t:parameter name="domainsCell">
+            <t:domainsenum domains="domains"/>
+        </t:parameter>
+        <t:parameter name="projectCell">
+            <t:pagelink page="projects/detail" context="${projectId}">${projectTitle}</t:pagelink>
+        </t:parameter>
+        <t:parameter name="facttitleCell">
+            <t:pagelink page="knowledge/facts/display" context="fact.id">${fact.facttitle}</t:pagelink>
+        </t:parameter>
+    </t:grid>
+</container>

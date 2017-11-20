@@ -1,0 +1,29 @@
+<html t:type="layout"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+      pagetitle="${pageTitle}">
+
+<br/>
+<h2>${pageTitle}</h2>
+<br/>
+<t:if test="addDomain">
+    Выберите родителя для создаваемого домена
+    <t:parameter name="else">
+        <t:if test="editDomain">
+            Выберите редактируемый домен
+            <t:parameter name="else">
+                <t:if test="deleteDomain">
+                    Выберите удаляемый домен
+                </t:if>
+            </t:parameter>
+        </t:if>
+    </t:parameter>
+</t:if>
+
+<t:form t:id="submit">
+<t:domaincombos t:id="domainCombos" source="domainDAO" multiplerows="false"/>
+    <t:submit value="ok" />
+</t:form>
+<t:form t:id="cancel">
+    <t:submit value="cancel" />
+</t:form>
+</html>

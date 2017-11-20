@@ -1,0 +1,49 @@
+<html t:type="layout"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+      pagetitle="Fact display">
+
+<br />
+<t:pagelink page="knowledge/facts/list">К списку фактов</t:pagelink>
+<br/>
+<br/>
+<h1>${fact.facttitle}</h1>
+
+<br />
+<table style="width: 400px;">
+    <tr>
+        <td>Предметные области:</td>
+        <td align="right"><t:domainsenum domains="fact.domains" /></td>
+    </tr>
+    <tr>
+        <td>
+            Проект: <t:pagelink page="projects/detail" context="projectId">
+                        ${projectTitle}
+                    </t:pagelink>
+        </td>
+        <td align="right">
+            Автор: ${fact.author}
+        </td>
+    </tr>
+</table>
+<!-- rawoutput, потому что текст факта приходит в textile-->
+<p>
+    <t:rawoutput data="${facttext}" />
+</p>
+<br/>
+Присоединённые файлы:
+<ul>
+<t:loop source="files" value="file">
+    <li>
+        <t:eventlink event="getFile" context="file.id">${file.filename}</t:eventlink>
+    </li>
+</t:loop>
+</ul>
+
+<table style="width: 400px;">
+    <tr>
+        <td align="right">
+            <t:pagelink page="knowledge/facts/edit" context="${fact.id}">Edit</t:pagelink>
+        </td>
+    </tr>
+</table>
+</html>

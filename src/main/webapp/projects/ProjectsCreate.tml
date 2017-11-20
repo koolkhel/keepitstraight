@@ -1,0 +1,35 @@
+<html t:type="layout"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+      pagetitle="Create project">
+<br/>
+<t:form t:id="createProject">
+    <table>
+        <tr>
+            <td align="right">
+            <t:label for="projectTitle">Название проекта:</t:label>
+            </td>
+            <td>
+                <t:textfield t:id="projectTitle" value="projectTitle" size="40"
+                        validate="required"/>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" align="right">
+                <t:label for="projectDescription">Описание проекта:</t:label>
+            </td>
+            <td>
+                <t:textarea t:id="projectDescription" rows="10" cols="40"
+                            style="width: 400px;" t:mixins="autoaugment"
+                            t:size="15"
+                        validate="required"/>
+            </td>
+        </tr>
+    </table>
+    <t:submit t:id="createProjectSubmit" id="createProjectSubmit" value="Добавить проект" />
+
+    <br/>
+    <t:hotkey control="projectTitle" key="enter" action="$('projectDescription').activate()" />
+    <t:hotkey global="true" key="ctrl+enter" action="$('createProjectSubmit').click()" />
+
+</t:form>
+</html>

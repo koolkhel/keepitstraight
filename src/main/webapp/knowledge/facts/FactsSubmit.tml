@@ -1,0 +1,64 @@
+<html t:type="layout"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+      pagetitle="literal:Keep IT Straight — Submit fact">
+
+<t:login/>
+<br/>
+<t:form t:id="submitFact">
+    <table border="0">
+        <tr>
+            <td valign="top">
+                <div align="right">Введите краткое описание факта:</div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <t:textfield id='factTitle' t:id="factTitle" validate="required" size="50" style="width: 400px; " value="factTitle"/>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                Проект:
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <t:select model="projects" encoder="projects" value="project" />
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <div align="right">Введите содержательную часть факта:</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <t:textarea t:id="factText" validate="required"
+                            style="width: 400px; height: 8em;"
+                            rows="7" cols="50" value="factText"
+                            wrap="off"
+                        t:mixins="autoaugment"/>
+            </td>
+        </tr>
+    </table>
+
+    <br/>
+    <t:domaincombos t:id="domaincombos" source="domainDAO"/>
+    <br/>
+    Прикрепить файл:
+    <input t:type="upload" t:id="file"/>
+    <!--в общем, TODO здесь как-то надо сделать, чтобы несколько
+    файлов можно было добавлять. вроде подходит ajaxformloop, но с ним нужно разбираться-->
+    <t:formfragment>
+
+    </t:formfragment>
+    <br/>
+    <t:submit id="factSubmit" value="Add new fact"/>
+</t:form>
+
+<t:hotkey global="true" key="ctrl+enter" action="$('factSubmit').click();" />
+<t:hotkey global="true" key="alt+t" action="$('factTitle').activate();" />
+<t:hotkey global="true" key="alt+c" action="$('factText').activate();" />
+<t:hotkey control="factTitle" key="enter" action="$('factText').activate();" />
+</html>

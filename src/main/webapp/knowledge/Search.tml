@@ -1,0 +1,31 @@
+<html t:type="layout"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+      pagetitle="Поиск">
+<br/>
+<t:pagelink page="index">На главную</t:pagelink>
+<br/>
+<h2>Поиск фактов</h2>
+<br/>
+<t:form t:id="search">
+    <t:textfield size="50" style="width: 400px;" value="searchString" />
+    <t:submit value="Поиск" />
+</t:form>
+<ol>
+    <t:loop source="results" value="fact">
+        <li>
+            <t:pagelink page="knowledge/facts/display" context="fact.id">
+                <h3>${fact.facttitle}</h3>
+            </t:pagelink>
+
+            <t:rawoutput data="${factBody}"/>
+
+            Файлов: ${filesCount}
+
+            <br/>
+
+            Предметные области:
+            <t:domainsenum domains="fact.domains"/>
+        </li>
+    </t:loop>
+</ol>
+</html>

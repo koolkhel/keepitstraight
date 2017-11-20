@@ -1,0 +1,13 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head>
+<title>${pageTitle}</title>
+</head>
+<body>
+<div align="center">
+    <table>
+        <tr><td align="left"><img src="${asset:context:images/title.png}" /></td></tr>
+        <tr><td><t:body /></td></tr>
+    </table>
+</div>
+</body>
+</html>

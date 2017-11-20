@@ -1,0 +1,63 @@
+<div t:type="layout"
+    xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+    pagetitle="Keep IT Straight">
+    
+    <br/>
+
+    <table>
+        <tr><td align="right"><t:login/></td></tr>
+        <t:form t:id="submitFact" id="submitFact">
+            <tr>
+                <td>
+                    <t:textarea t:id="factTextArea"
+                                id="literal:factTextArea"
+                                rows="0" cols="0"
+                                value="newFactText"
+                                style="width: 400px; height: 8em;"
+                                t:mixins="autoaugment"/>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <t:submit id="submitFactButton" value="Add new fact"/>
+                </td>
+            </tr>
+        </t:form>
+        <t:form t:id="searchFact" autofocus="false">
+            <tr>
+                <td>
+                    <t:textfield value="searchFact" style="margin-top: 3em; width: 400px;"/>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <t:submit value="Search"/>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <div style="margin-top: 30px;">
+                        <t:pagelink page="projects">Проекты</t:pagelink>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <div style="margin-top: 15px;">
+                        <t:pagelink page="knowledge/domains">Предметные области</t:pagelink>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <div style="margin-top: 15px;">
+                        <t:pagelink page="knowledge/facts/list">Список фактов</t:pagelink>
+                    </div>
+                </td>
+            </tr>
+        </t:form>
+    </table>
+
+    <t:hotkey control="factTextArea" key="ctrl+enter" action="$('submitFactButton').click();" />
+    
+</div>

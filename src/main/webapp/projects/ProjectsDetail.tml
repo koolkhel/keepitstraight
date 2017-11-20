@@ -1,0 +1,30 @@
+<html t:type="layout"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+      pagetitle="Projects detail">
+<br/>
+
+<h2>${project.title}</h2>
+
+<br/>
+<t:pagelink page="projects/index">К проектам</t:pagelink>    
+<br/>
+<br/>
+<t:pagelink page="projects/edit" context="project.id">Редактировать проект</t:pagelink>
+<br/>
+<br/>
+<t:eventlink event="deleteProject">Удалить проект</t:eventlink>
+<br/>
+<br/>
+Всего фактов, ассоциированных с проектом: ${factCount}
+<br/>
+Дата начала проекта: ${project.start}
+<br/>
+<t:if test="project.opened">
+    Проект ещё не окончен
+    <t:parameter name="else">
+        Дата окончания: ${project.finish}
+    </t:parameter>
+</t:if>
+<br/>
+<t:factgrid facts="facts"/>
+</html>

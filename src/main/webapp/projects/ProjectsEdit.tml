@@ -1,0 +1,54 @@
+<html t:type="layout"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+      pagetitle="Edit project">
+<t:form id="editProject">
+    <table style="width: 400px;">
+
+        <tr>
+            <td>
+                Название проекта
+            </td>
+            <td>
+                <t:textfield value="project.title" t:id="projectTitle"
+                        validate="required" size="40"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <t:label for="projectDescription">Описание проекта</t:label>
+            </td>
+            <td>
+                <t:textarea t:mixins="autoaugment" value="project.description"
+                            t:id="projectDescription"
+                            style="width: 400px"
+                            rows="10" size="70" t:size="10"
+                        validate="required"/>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                Дата начала проекта:
+            </td>
+            <td>
+                ${project.start}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Дата конца проекта:
+            </td>
+            <td>
+                <t:if test="project.opened">
+                    <t:eventlink event="finishProject">Завершить проект</t:eventlink>
+                    , новые факты
+                    после этого добавлять в этот проект уже будет нельзя.
+                    <t:parameter name="else">
+                        ${project.finish}
+                    </t:parameter>
+                </t:if>
+            </td>
+        </tr>
+    </table>
+<t:submit value="Сохранить изменения" />
+</t:form>
+</html>

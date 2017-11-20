@@ -1,0 +1,11 @@
+<html t:type="layout"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+	pagetitle="literal:Keep IT Straight - fact list">
+<t:login />
+
+<t:pagelink page="index">На главную</t:pagelink>
+<br/>
+<br/>
+
+<t:factgrid facts="facts" />
+</html>

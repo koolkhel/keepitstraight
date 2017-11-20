@@ -1,0 +1,19 @@
+<html t:type="layout"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+      pagetitle="Domain detail">
+
+<br />
+<h2><t:domainsenum domains="domains" /></h2>
+
+<br />
+<t:pagelink page="knowledge/domains">К предметным областям</t:pagelink>
+<br/>
+<t:pagelink page="knowledge/domains/edit" context="domain.id">Редактировать домен</t:pagelink>
+
+<br/>
+Фактов: ${factCount}
+
+<br/>
+
+<t:factgrid facts="facts" />
+</html>

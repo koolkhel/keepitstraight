@@ -1,0 +1,16 @@
+<html t:type="layout"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+      pagetitle="Редактирование домена">
+<br/>
+Родители: <t:domainsenum domains="parents" />
+<br/>
+<t:form>
+<table>
+    <tr>
+        <td>Название домена:</td>
+        <td><t:textfield value="domain.description" size="40" validate="required"/></td>
+    </tr>
+</table>
+    <t:submit value="Сохранить изменения" />
+</t:form>
+</html>

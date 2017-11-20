@@ -1,0 +1,55 @@
+<html t:type="layout"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+      pagetitle="Fact edit">
+<br/>
+<h2>Редактирование факта ${fact.facttitle}</h2>
+<br/>
+
+<t:pagelink page="knowledge/facts/display" context="${fact.id}">Обратно</t:pagelink>
+
+<br/>
+
+<br/>
+<t:form t:id="editFact">
+    <table style="width: 400px;">
+        <tr>
+            <td>
+                Предметные области:
+            </td>
+            <td>
+                <t:domainsenum domains="fact.domains" />                
+            </td>
+        </tr>
+        <tr>
+            <td>Название:</td>
+            <td>
+                <t:textfield validate="required" size="50"
+                        value="fact.facttitle"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Содержательная часть:</td>
+            <td>
+                <t:textarea
+                        validate="required"
+                        wrap="off"
+                        t:mixins="autoaugment" value="fact.facttext"
+                        style="width: 400px; height: 8em;"
+                            rows="7" cols="50"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Проект:</td>
+            <td>
+                <t:select model="projects" encoder="projects" value="project"/>
+            </td>
+        </tr>
+    </table>
+    <t:submit value="Сохранить изменения" />
+    Ещё тут когда-нибудь будет добавление файлов
+</t:form>
+
+Или можно:
+<br/>
+<t:eventlink event="deleteFact">удалить факт</t:eventlink>
+</html>

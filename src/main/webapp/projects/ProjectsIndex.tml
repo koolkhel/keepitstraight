@@ -1,0 +1,37 @@
+<html t:type="layout"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+      pagetitle="Keep IT Straight — Projects">
+<br/>
+
+
+<table style="width: 400px;">
+    <tr>
+        <td>
+            <table width="100%">
+                <tr>
+                    <td>
+                        <t:pagelink page="index">На главную</t:pagelink>
+                    </td>
+                    <td align="right"><t:pagelink page="projects/create">Создать проект</t:pagelink></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h2>Список проектов</h2>
+            <ol>
+                <t:loop source="projects" value="project">
+                    <li>
+                        <t:pagelink page="projects/detail" context="project.id">
+                            ${project.title}
+                        </t:pagelink>
+                        <p>${project.description}</p>
+                    </li>
+                </t:loop>
+            </ol>
+        </td>
+    </tr>
+</table>
+</html>
